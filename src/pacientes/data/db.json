@@ -1,0 +1,41 @@
+{
+  "pacientes": [
+    {
+      "id": 1,
+      "dni": 35678901,
+      "nombre": "Carlos",
+      "apellido": "López",
+      "email": "carlos.lopez@email.com"
+    },
+    {
+      "id": 2,
+      "dni": 40123456,
+      "nombre": "Ana",
+      "apellido": "Martínez",
+      "email": "ana.martinez@email.com"
+    },
+    {
+      "id": 3,
+      "dni": 28456789,
+      "nombre": "Pedro",
+      "apellido": "González",
+      "email": "pedro.gonzalez@email.com"
+    },
+    {
+      "id": 4,
+      "dni": 32567890,
+      "nombre": "María",
+      "apellido": "Fernández",
+      "email": "maria.fernandez@email.com"
+    },
+    {
+      "id": 5,
+      "dni": 37890123,
+      "nombre": "José",
+      "apellido": "Rodríguez",
+      "email": "jose.rodriguez@email.com"
+    }
+  ],
+  "nextId": 6
+}
+

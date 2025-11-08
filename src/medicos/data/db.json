@@ -1,0 +1,75 @@
+{
+  "medicos": [
+    {
+      "id": 1,
+      "nombre": "Dr. Juan Pérez",
+      "matricula": 12345,
+      "email": "juan.perez@hospital.com",
+      "especialidad": "Cardiología"
+    },
+    {
+      "id": 2,
+      "nombre": "Dra. María García",
+      "matricula": 23456,
+      "email": "maria.garcia@hospital.com",
+      "especialidad": "Pediatría"
+    },
+    {
+      "id": 3,
+      "nombre": "Dr. Carlos Rodríguez",
+      "matricula": 34567,
+      "email": "carlos.rodriguez@hospital.com",
+      "especialidad": "Neurología"
+    },
+    {
+      "id": 4,
+      "nombre": "Dra. Ana Martínez",
+      "matricula": 45678,
+      "email": "ana.martinez@hospital.com",
+      "especialidad": "Dermatología"
+    },
+    {
+      "id": 5,
+      "nombre": "Dr. Luis Fernández",
+      "matricula": 56789,
+      "email": "luis.fernandez@hospital.com",
+      "especialidad": "Traumatología"
+    },
+    {
+      "id": 6,
+      "nombre": "Dra. Laura Sánchez",
+      "matricula": 67890,
+      "email": "laura.sanchez@hospital.com",
+      "especialidad": "Ginecología"
+    },
+    {
+      "id": 7,
+      "nombre": "Dr. Roberto López",
+      "matricula": 78901,
+      "email": "roberto.lopez@hospital.com",
+      "especialidad": "Oftalmología"
+    },
+    {
+      "id": 8,
+      "nombre": "Dra. Patricia Gómez",
+      "matricula": 89012,
+      "email": "patricia.gomez@hospital.com",
+      "especialidad": "Oncología"
+    },
+    {
+      "id": 9,
+      "nombre": "Dr. Miguel Torres",
+      "matricula": 90123,
+      "email": "miguel.torres@hospital.com",
+      "especialidad": "Psiquiatría"
+    },
+    {
+      "id": 10,
+      "nombre": "Dra. Carmen Ruiz",
+      "matricula": 10234,
+      "email": "carmen.ruiz@hospital.com",
+      "especialidad": "Endocrinología"
+    }
+  ],
+  "nextId": 11
+}

@@ -1,0 +1,24 @@
+{
+  "name": "tp-arquitectura-web",
+  "version": "1.0.0",
+  "description": "Trabajo Practico Arquitectura Web 2025 2C",
+  "homepage": "https://github.com/czanier-up/tp-arquitectura-web#readme",
+  "bugs": {
+    "url": "https://github.com/czanier-up/tp-arquitectura-web/issues"
+  },
+  "license": "ISC",
+  "author": "Cristian Jorge Zanier Salinas",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

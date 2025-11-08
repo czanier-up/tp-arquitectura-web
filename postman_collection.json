@@ -1,0 +1,489 @@
+{
+	"info": {
+		"_postman_id": "a392ccdb-7a95-4f90-9f99-631cab963fdc",
+		"name": "Cristian Zanier TP - Turnos Medicos API",
+		"description": "Colección completa de endpoints REST para el sistema de gestión de turnos médicos. Incluye operaciones CRUD para Médicos, Pacientes y Turnos con persistencia en archivos JSON.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "9013250"
+	},
+	"item": [
+		{
+			"name": "Medicos",
+			"item": [
+				{
+					"name": "Get All Medicos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/medicos",
+						"description": "Obtiene la lista completa de médicos registrados en el sistema."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Medico by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/medicos/{{medicoId}}",
+						"description": "Obtiene un médico específico por su ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Turnos by Medico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/medicos/{{medicoId}}/turnos",
+						"description": "Obtiene todos los turnos asignados a un médico específico."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Medico",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 201) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"medicoId\", jsonData.id);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"matricula\": 11223,\n  \"nombre\": \"Dr. Alberto Fernández\",\n  \"email\": \"alberto.fernandez@hospital.com\",\n  \"especialidad\": \"Medicina General\"\n}"
+						},
+						"url": "{{baseUrl}}/api/medicos",
+						"description": "Crea un nuevo médico en el sistema. Requiere matricula, nombre y especialidad."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Medico",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"matricula\": 12345,\n  \"nombre\": \"Dr. Juan Pérez Actualizado\",\n  \"email\": \"juan.perez.updated@hospital.com\",\n  \"especialidad\": \"Cardiología Avanzada\"\n}"
+						},
+						"url": "{{baseUrl}}/api/medicos/1",
+						"description": "Actualiza la información de un médico existente. Todos los campos son opcionales."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Medico",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/api/medicos/11",
+						"description": "Elimina un médico del sistema por su ID."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gestión de médicos. Incluye operaciones CRUD completas y consulta de turnos por médico."
+		},
+		{
+			"name": "Pacientes",
+			"item": [
+				{
+					"name": "Get All Pacientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/pacientes",
+						"description": "Obtiene la lista completa de pacientes registrados."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Paciente by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/pacientes/{{pacienteId}}",
+						"description": "Obtiene un paciente específico por su ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Paciente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 201) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"pacienteId\", jsonData.id);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"dni\": 42567890,\n  \"nombre\": \"Roberto\",\n  \"apellido\": \"Sánchez\",\n  \"email\": \"roberto.sanchez@email.com\"\n}"
+						},
+						"url": "{{baseUrl}}/api/pacientes",
+						"description": "Registra un nuevo paciente. Requiere dni y nombre."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Paciente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"dni\": 35678901,\n  \"nombre\": \"Carlos Alberto\",\n  \"apellido\": \"López García\",\n  \"email\": \"carlos.lopez.updated@email.com\"\n}"
+						},
+						"url": "{{baseUrl}}/api/pacientes/1",
+						"description": "Actualiza la información de un paciente existente."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Paciente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/api/pacientes/6",
+						"description": "Elimina un paciente del sistema."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gestión de pacientes. CRUD completo con búsqueda por DNI."
+		},
+		{
+			"name": "Turnos",
+			"item": [
+				{
+					"name": "Get All Turnos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/turnos",
+						"description": "Obtiene todos los turnos médicos registrados."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Turno by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/turnos/{{turnoId}}",
+						"description": "Obtiene un turno específico por su ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Turno - Pendiente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 201) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"turnoId\", jsonData.id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"medico\": 1,\n  \"paciente\": 1,\n  \"fechaHora\": \"2025-11-25 09:00:00\",\n  \"estado\": \"Pendiente\"\n}"
+						},
+						"url": "{{baseUrl}}/api/turnos",
+						"description": "Crea un nuevo turno médico. Requiere medico, paciente, fecha y hora. Estado por defecto: Pendiente."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Turno",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"medico\": 1,\n  \"paciente\": 1,\n  \"fecha\": \"2025-11-27\",\n  \"hora\": \"10:00\",\n  \"estado\": \"Atendido\"\n}"
+						},
+						"url": "{{baseUrl}}/api/turnos/1",
+						"description": "Actualiza un turno existente. Útil para cambiar estado a Atendido."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Turno - Change Status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"estado\": \"Atendido\"\n}"
+						},
+						"url": "{{baseUrl}}/api/turnos/2",
+						"description": "Actualización parcial: solo cambia el estado del turno."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Turno",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/api/turnos/7",
+						"description": "Elimina un turno del sistema (cancelación)."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gestión de turnos médicos. Permite asignar, actualizar estado y cancelar citas."
+		},
+		{
+			"name": "Integration Tests",
+			"item": [
+				{
+					"name": "Workflow - Complete Appointment",
+					"item": [
+						{
+							"name": "1. Create New Medico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.environment.set(\"newMedicoId\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"matricula\": 55555,\n  \"nombre\": \"Dr. Test Workflow\",\n  \"email\": \"test.workflow@hospital.com\",\n  \"especialidad\": \"Medicina Familiar\"\n}"
+								},
+								"url": "{{baseUrl}}/api/medicos"
+							},
+							"response": []
+						},
+						{
+							"name": "2. Create New Paciente",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.environment.set(\"newPacienteId\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dni\": 99887766,\n  \"nombre\": \"Workflow\",\n  \"apellido\": \"Test Patient\",\n  \"email\": \"workflow.patient@email.com\"\n}"
+								},
+								"url": "{{baseUrl}}/api/pacientes"
+							},
+							"response": []
+						},
+						{
+							"name": "3. Create Turno",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.environment.set(\"newTurnoId\", jsonData.id);"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"medico\": {{newMedicoId}},\n  \"paciente\": {{newPacienteId}},\n  \"fechaHora\": \"2025-12-01 11:00\",\n  \"estado\": \"Pendiente\"\n}"
+								},
+								"url": "{{baseUrl}}/api/turnos"
+							},
+							"response": []
+						},
+						{
+							"name": "4. Verify Turno in Medico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Turno appears in medico's list\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).to.be.above(0);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/medicos/{{newMedicoId}}/turnos"
+							},
+							"response": []
+						},
+						{
+							"name": "5. Update Turno to Atendido",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"estado\": \"Atendido\"\n}"
+								},
+								"url": "{{baseUrl}}/api/turnos/{{newTurnoId}}"
+							},
+							"response": []
+						}
+					],
+					"description": "Flujo completo de trabajo: crear médico, paciente, asignar turno y marcarlo como atendido."
+				}
+			],
+			"description": "Tests de integración que simulan flujos de trabajo completos."
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "medicoId",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "pacienteId",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "turnoId",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
